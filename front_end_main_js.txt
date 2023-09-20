@@ -1,0 +1,26 @@
+try{
+
+	const response=await fetch('http://localhost:3500/auth',{
+		method: 'POST',
+		headers: {'Content-Type': 'application/json'},
+		credentials:'include',
+		body:JSON.stringify({user,pwd})
+	});
+	if(!response.ok){
+		if(response.status===401){
+			return await sendRefreshToken();
+	}
+	throw new Error(`${response.status} ${response.statusText}`);
+	}
+	return await response.json();
+	}catch (err){
+		console.log(err.stack);
+		displayErr();
+}
+}
+
+5:02:54
+
+MongoDB: mongodb+srv://assystem-app1:<password>@cluster0.qajcddm.mongodb.net/?retryWrites=true&w=majority
+
+Replace <password> with the password for the assystem-app1 user. Ensure any option params are URL encoded.
